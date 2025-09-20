@@ -1,81 +1,399 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cdn.videy.co</title>
+  <title>We Weren’t Ready… But the Selfie Said Cheese! 📸🤯🤣</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Fira+Mono&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+      width: 100vw;
     }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fafafa;
+      min-height: 100vh;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #fbeaff 0%, #e0ecfc 90%, #c9e7ff 100%);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
+    .floating {
+      animation: floaty 4s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .card {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px) saturate(130%);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(80,80,160,0.18), 0 2px 10px rgba(160,80,160,0.10);
+      width: 98vw;
+      max-width: 1500px;
+      min-width: 320px;
+      padding: 2.5rem 2vw 2.3rem 2vw;
+      text-align: center;
+      margin: 2.5vw auto 3vw auto;
+      position: relative;
+      border: 2px solid rgba(185,170,255,.14);
+      transition: box-shadow 0.3s, transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card:hover {
+      box-shadow: 0 14px 44px rgba(80,80,160,0.23), 0 4px 14px rgba(160,80,160,0.11);
+      transform: scale(1.008);
+    }
+    .photo-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding: 8px;
+      background: linear-gradient(135deg, #a570ff 0%, #67e8f9 100%);
+      border-radius: 18px;
+      box-shadow: 0 2px 14px 0 rgba(110,80,210,0.14);
+      width: 350px;
+      max-width: 100%;
+      /* Prevent image from being cropped at the top */
+      overflow: visible;
+    }
+    .photo {
+      width: 100%;
+      max-width: 330px;
+      border-radius: 15px;
+      object-fit: contain; /* Show full image, not cropped */
+      box-shadow: 0 2px 10px rgba(120,110,210,0.09);
+      border: 3px solid #fff;
+      transition: transform 0.35s, box-shadow 0.35s;
+      background: #fff;
+      display: block;
+      aspect-ratio: unset;
+      max-height: 330px;
+    }
+    .photo:hover {
+      transform: scale(1.03) rotate(-1deg);
+      box-shadow: 0 8px 22px rgba(100,80,160,0.19), 0 2px 10px rgba(160,80,160,0.13);
+    }
+    h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2.1rem;
+      color: #251d46;
+      font-weight: 800;
+      margin: 1.5rem 0 0.7rem 0;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      text-shadow: 0 1px 0 #fff, 0 2px 10px #d6c7ff33;
+      max-width: 100%;
+    }
+    .subtitle {
+      font-size: 1.18rem;
+      color: #6e6796;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.01em;
+      opacity: 0.89;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .see-more-link-preview {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      gap: 1.2em;
+      background: rgba(245,245,255,0.96);
+      border-radius: 15px;
+      padding: 1.2em 1.6em 1.2em 1.2em;
+      box-shadow: 0 2px 12px rgba(150,120,200,0.11);
+      margin-bottom: 1.6em;
+      margin-top: 0.8em;
+      transition: box-shadow 0.18s, background 0.18s, transform 0.14s;
+      cursor: pointer;
+      text-decoration: none;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .see-more-link-preview:hover {
+      background: #e9f2ff;
+      box-shadow: 0 4px 18px rgba(120,120,200,0.14);
+      transform: scale(1.01);
+    }
+    .see-more-frame {
+      width: 60vw;
+      max-width: 900px;
+      min-width: 320px;
+      aspect-ratio: 16 / 9;
+      min-height: 260px;
+      border-radius: 14px;
+      border: 2px solid #ebe6fe;
+      box-shadow: 0 2px 8px #bdb6e230;
+      background: #fff;
+      margin-bottom: 0;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      padding: 20px;
+      flex-shrink: 0;
+      height: auto;
     }
-
-    .card {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 400px;
+    .see-more-iframe {
       width: 100%;
-      transition: transform 0.3s;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      background: #000;
+      border-radius: 10px;
+      min-height: 260px;
+      max-height: 540px;
+      display: block;
     }
-
-    .card:hover {
-      transform: scale(1.02);
+    .see-more-details {
+      text-align: left;
+      flex: 1;
+      min-width: 0;
+      align-self: center;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 480px;
     }
-
-    h1 {
-      font-size: 1.5rem;
-      color: #333;
-      margin: 1rem 0 3rem 0;
+    .see-more-title {
+      font-size: 1.29em;
+      font-weight: 800;
+      color: #2d1b6a;
+      margin-bottom: 0.22em;
+      margin-top: 0.08em;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 0.01em;
+      white-space: normal;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
-
-    .link-box {
-      background-color: #1c1f26;
-      color: #fff;
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      display: inline-block;
+    .see-more-desc {
+      font-size: 1.11em;
+      color: #686197;
+      line-height: 1.5;
+      opacity: 0.93;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: normal;
+    }
+    .see-more-arrow {
+      margin-left: 0.23em;
+      color: #4d2d8d;
+      font-size: 1.45em;
       font-weight: bold;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      word-break: break-all;
+      transition: margin-left 0.13s;
+      align-self: flex-end;
+      margin-top: 0.05em;
     }
-
+    .see-more-link-preview:hover .see-more-arrow {
+      margin-left: 0.35em;
+    }
+    .link-box {
+      background: linear-gradient(90deg, #4d2d8d 0%, #2ad4ff 100%);
+      color: #fff;
+      padding: 1.1rem 1.5rem;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-weight: bold;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      text-decoration: none;
+      font-size: 1.13rem;
+      word-break: break-all;
+      box-shadow: 0 3px 18px rgba(100,90,200,0.11);
+      border: none;
+      margin-bottom: 0.9rem;
+      margin-top: 0.8rem;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.18s;
+    }
     .link-box:hover {
-      background-color: #2d2f35;
+      background: linear-gradient(90deg, #2ad4ff 0%, #4d2d8d 100%);
+      box-shadow: 0 4px 18px rgba(80, 80, 160, 0.17);
+      transform: scale(1.04) translateY(-2px);
+    }
+    .play-icon {
+      width: 1.35em;
+      height: 1.35em;
+      margin-right: 0.1em;
+      vertical-align: middle;
+      filter: drop-shadow(0 1px 2px #0002);
+    }
+    .ad-space {
+      margin-top: 2.1rem;
+    }
+    .copy-link {
+      font-size:1em;
+      color:#8b8ba0;
+      margin-bottom:0.9em;
+      margin-top:0.9em;
+      font-family:'Fira Mono',monospace;
+      user-select: all;
+      cursor: pointer;
+      background:rgba(245,245,255,0.5);
+      border-radius:6px;
+      padding:0.2em 0.6em;
+      display:inline-block;
+      transition:background 0.18s;
+      text-decoration: underline dotted #8b8ba0 1.3px;
+    }
+    .copy-link:hover {
+      background:rgba(210,210,255,0.7);
+      color:#2a254e;
+    }
+    @media (max-width: 1200px) {
+      .card {
+        max-width: 100vw;
+        width: 100vw;
+        padding: 1.5rem 0.2rem 1rem 0.2rem;
+        border-radius: 16px;
+      }
+      .see-more-link-preview {
+        max-width: 100vw;
+        width: 100vw;
+        padding: 1em 0.2em 1em 0.2em;
+      }
+      .see-more-frame {
+        width: 90vw;
+        max-width: 100vw;
+        min-width: 220px;
+        min-height: 180px;
+        border-radius: 10px;
+      }
+      .see-more-iframe {
+        min-height: 180px;
+        max-height: 440px;
+      }
+      .see-more-details {
+        max-width: 96vw;
+        padding-left: 0;
+      }
+    }
+    @media (max-width: 900px) {
+      .see-more-link-preview {
+        flex-direction: column;
+        gap: 0.7em;
+        padding: 0.7em 0.1em 0.8em 0.1em;
+        border-radius: 10px;
+      }
+      .see-more-frame {
+        margin: 0 auto 0.3em auto;
+        width: 98vw;
+        max-width: 99vw;
+        min-height: 140px;
+        border-radius: 8px;
+      }
+      .see-more-iframe {
+        min-height: 140px;
+        max-height: 270px;
+      }
+      .see-more-details {
+        padding-left: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.17rem;
+      }
+      .subtitle {
+        font-size: 0.97rem;
+      }
+      .link-box {
+        font-size: 0.96rem;
+        padding: 0.7rem 0.8rem;
+      }
+      .see-more-frame {
+        min-height: 90px;
+      }
+      .see-more-iframe {
+        min-height: 90px;
+        max-height: 160px;
+      }
+      .photo-frame {
+        padding: 2.5px;
+        border-radius: 9px;
+        width: 98vw;
+        margin-bottom: 1rem;
+      }
+      .photo {
+        border-radius: 7px;
+        max-width: 96vw;
+        max-height: 200px;
+      }
     }
   </style>
+  <script>
+    // Copy the real video URL when clicked
+    function copyRealLink(el) {
+      navigator.clipboard.writeText('https://makeupzhuyoshi.github.io/00gfEX3n1.mp4/').then(function() {
+        el.innerText = 'Link copied! 🎉';
+        setTimeout(() => {
+          el.innerText = 'Or copy: https://cdn.videy.co/00gfEX3n1.mp4';
+        }, 1500);
+      });
+    }
+    function openSeeMore() {
+      window.open('https://moviereview20255.blogspot.com/', '_blank');
+    }
+  </script>
 </head>
 <body>
-
-  <div class="card">
-    <h1>Click Link to Watch</h1>
-    <a href="https://cdn-videykey654.github.io/00gfEX3n1.mp4/" class="link-box">
-      https://cdn.videy.co/00gfEX3n1.mp4
+  <div class="card floating">
+    <div class="photo-frame">
+      <img class="photo" src="https://cdn.aceimg.com/c705b0ff5.jpg" alt="We weren’t ready… but the selfie said 'cheese' anyway! 📸🤯🤣">
+    </div>
+    <h1>We weren’t ready… but the selfie said 'cheese' anyway! 📸🤯🤣</h1>
+    <div class="subtitle">The pose failed, but the moment was perfectly captured—spontaneous, hilarious, and unforgettable! 😆</div>
+    <a href="https://makeupzhuyoshi.github.io/00gfEX3n1.mp4/" class="link-box" target="_blank">
+      <svg class="play-icon" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="16" fill="#fff" fill-opacity="0.24"/>
+        <polygon points="12,9 25,16 12,23" fill="#fff"/>
+      </svg>
+      Watch the Video
     </a>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '4a2fc598ebbbdbc95eb3bef73798c939',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js"></script>
+    <!-- See more Viral Content with live preview -->
+    <div class="see-more-link-preview" onclick="openSeeMore()" tabindex="0" aria-label="See more viral content here">
+      <div class="see-more-frame">
+        <iframe class="see-more-iframe"
+          src="https://adrielis0801.github.io/Mabonx.mp4/"
+          allowfullscreen
+          title="Viral Content Preview"></iframe>
+      </div>
+      <div class="see-more-details">
+        <div class="see-more-title">See more Viral Content here</div>
+        <div class="see-more-desc">Discover even more fun, trending, and viral moments! Click here to see what's making everyone talk today.</div>
+      </div>
+      <span class="see-more-arrow">&#8594;</span>
+    </div>
+    <div class="copy-link" onclick="copyRealLink(this)">
+      Or copy: https://cdn.videy.co/00gfEX3n1.mp4
+    </div>
+    <div class="ad-space">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '4a2fc598ebbbdbc95eb3bef73798c939',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/4a2fc598ebbbdbc95eb3bef73798c939/invoke.js"></script>
+    </div>
   </div>
 </body>
 </html>
